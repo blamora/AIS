@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import edu.uniajc.ais.dto.ClassParametersDTO;
 import edu.uniajc.ais.logic.ClassParametersLogic;
 import edu.uniajc.ais.model.ClassParameters;
 
@@ -18,14 +19,14 @@ public class BusinessDelegator implements IBusinessDelegator {
 	
 	@Override
 	public ClassParameters getClassById(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		ClassParameters entity = classParametersLogic.getClassById(id);
+		return entity;
 	}
 
 	@Override
-	public List<ClassParameters> findAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ClassParametersDTO> findAll() throws Exception {
+		List<ClassParametersDTO> entityDTO = classParametersLogic.findAll();
+		return entityDTO;
 	}
 
 	@Override
@@ -36,14 +37,13 @@ public class BusinessDelegator implements IBusinessDelegator {
 
 	@Override
 	public void update(ClassParameters entity) throws Exception {
-		// TODO Auto-generated method stub
+		classParametersLogic.update(entity);
 		
 	}
 
 	@Override
 	public void delete(ClassParameters entity) throws Exception {
-		// TODO Auto-generated method stub
-		
+		classParametersLogic.delete(entity);		
 	}
 
 }
